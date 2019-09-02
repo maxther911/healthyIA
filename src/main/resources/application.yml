@@ -1,0 +1,37 @@
+server:
+  port: 8085
+  servlet:
+    context-path: /healthyIA
+spring:
+  datasource:
+    url: jdbc:postgresql://healthy.c4aylzwtqdya.us-east-2.rds.amazonaws.com:1572/healthy
+    username: oauth
+    password: Tecno2019
+    driver-class-name: org.postgresql.Driver
+    tomcat:
+      test-while-idle: true
+      validation-query: SELECT 1
+    initialization-mode: never
+    platform: oracle
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        hibernate:
+          show_sql: true
+          use_sql_comments: true
+    hibernate:
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+      ddl-auto: validate
+  main:
+    allow-bean-definition-overriding : true
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+check-user-scopes: true
